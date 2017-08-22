@@ -6,68 +6,14 @@ body{
     font-family: sans-serif;
     font: Arial;
     background-color: #FBF8FA;
-}
-
-#mainName{
-    font-size: 48px;
-    color: white;
-}
-
-#institution{
-    font-size: 25px;
-    color: white;
-}
-div.topBanner{
-    background-image: url("background banner.jpg");
-    height: 200px;
-    width: 100%;
-    positive:relative;
-    padding:2%;
-}
-
-div.intro{
-    color: #353535;
-    margin:0;
-    padding:0;
-    text-align:left;
-}
-
-#bio {
-    width:70%;
-    display:inline-block;
-    padding-top:50px;
-    box-sizing:border-box;
-    -moz-box-sizing:border-box;
+    margin-left:18%;
+    margin-right:18%;
 }
 
 #portrait {
     padding:2%;
-    margin:0;
-    width:18%;
-    vertical-align:bottom;
-    float:left;
-}
-
-nav{
-    padding: 5px;
-    border: 2px black solid;
-    background-color: #333;
-    list-style-type: none;
-    overflow: auto;
-}
-
-li {
-    float: left;
-}
-
-li a{
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover{
-    background-color: #111;
+    margin:0 auto;
+    width:30%;
+    align: center;
+    display:block;
 }
