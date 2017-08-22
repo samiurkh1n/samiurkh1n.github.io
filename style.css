@@ -20,18 +20,20 @@ body{
 div.topBanner{
     background-image: url("background banner.jpg");
     height: 200px;
-    width: 100%;
+    width: 100%; 
 }
 
 div.intro{
     color: #353535;
-    float:left;
+    float: right;
 }
 
 img{
+    margin-left: 2%;
     height: 96px;
     width: 72px;
-    float:right;
+    float: left;
+    position: relative;
 }
 
 nav{
