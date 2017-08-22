@@ -20,29 +20,32 @@ body{
 div.topBanner{
     background-image: url("background banner.jpg");
     height: 200px;
-    width: 100%; 
+    width: 100%;
+    positive:relative;
+    padding:2%;
 }
 
 div.intro{
     color: #353535;
     margin:0;
     padding:0;
-    text-align:right;
+    text-align:left;
 }
 
 #bio {
-    width:49%;
+    width:70%;
     display:inline-block;
-    padding:40px;
+    padding-top:50px;
     box-sizing:border-box;
     -moz-box-sizing:border-box;
 }
 
 #portrait {
-    padding:0;
+    padding:2%;
     margin:0;
-    width:49%;
+    width:18%;
     vertical-align:bottom;
+    float:left;
 }
 
 nav{
