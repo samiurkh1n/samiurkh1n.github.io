@@ -25,15 +25,24 @@ div.topBanner{
 
 div.intro{
     color: #353535;
-    float: right;
+    margin:0;
+    padding:0;
+    text-align:center;
 }
 
-img{
-    margin-left: 2%;
-    height: 96px;
-    width: 72px;
-    float: left;
-    position: relative;
+#bio {
+    width:49%;
+    display:inline-block;
+    padding:40px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+
+#portrait {
+    padding:0;
+    margin:0;
+    width:49%;
+    vertical-align:bottom;
 }
 
 nav{
