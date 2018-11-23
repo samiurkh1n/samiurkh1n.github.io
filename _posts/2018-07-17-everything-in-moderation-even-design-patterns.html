@@ -22,22 +22,22 @@ author:
   first_name: Samiur
   last_name: Khan
 ---
-<p>When novelists or playwrights write a story, they almost never begin by writing<br />
-random thoughts down. Most stories tend to follow the same pattern. There tends<br />
-to be a beginning, which introduces the setting, the characters and their<br />
-relationships, etc. Then the middle, where there are some sequence of conflicts<br />
-or challenges that the characters face that build up to some climax. Stories<br />
+<p>When novelists or playwrights write a story, they almost never begin by writing
+random thoughts down. Most stories tend to follow the same pattern. There tends
+to be a beginning, which introduces the setting, the characters and their
+relationships, etc. Then the middle, where there are some sequence of conflicts
+or challenges that the characters face that build up to some climax. Stories
 then end with some conclusion or resolution.</p>
-<p>Similarly, some would say that a similar pattern exists for writing software in<br />
-the form of design patterns. Object oriented programming introduced the idea<br />
-of programming a set of interacting objects. Design patterns are, in a sense,<br />
-common patterns of interacting objects. However, while literature has a pattern<br />
-for writing stories that is pretty reliable and uncomfortable for readers once<br />
+<p>Similarly, some would say that a similar pattern exists for writing software in
+the form of design patterns. Object oriented programming introduced the idea
+of programming a set of interacting objects. Design patterns are, in a sense,
+common patterns of interacting objects. However, while literature has a pattern
+for writing stories that is pretty reliable and uncomfortable for readers once
 broken, programming doesn't seem to reap the same benefits with design patterns.</p>
-<p>There are obviously cases where some design patterns make sense. One such<br />
-pattern is the factory method. The biggest reason I enjoy using a factory to<br />
-construct objects is that you can short circuit the creation of the object if<br />
-the parameters are off. Without a factory method, you could use some variable<br />
+<p>There are obviously cases where some design patterns make sense. One such
+pattern is the factory method. The biggest reason I enjoy using a factory to
+construct objects is that you can short circuit the creation of the object if
+the parameters are off. Without a factory method, you could use some variable
 that holds the state of the construction. For instance, something like this:</p>
 <pre>class SomeClass {
   public:
@@ -52,8 +52,8 @@ that holds the state of the construction. For instance, something like this:</p>
     // false = bad, true = good to go.
     bool construction_state_;
 };</pre>
-<p>but if your class holds a lot of data at construction, there's a large amount<br />
-of compute power you end up wasting because of it. Now with the factory method,<br />
+<p>but if your class holds a lot of data at construction, there's a large amount
+of compute power you end up wasting because of it. Now with the factory method,
 once you know the parameter is empty, you can stop the creation all together:</p>
 <pre>class SomeClass {
   public:
@@ -74,43 +74,43 @@ once you know the parameter is empty, you can stop the creation all together:</p
   StatusOr&lt;std::unique_ptr&lt;SomeClass&gt;&gt; instance = SomeClass::Create(argument);
   // ... do things with "instance" ...
 }</pre>
-<p>If something was wrong with the argument passed, SomeClass would never get<br />
+<p>If something was wrong with the argument passed, SomeClass would never get
 created in the first place.</p>
-<p>(I'm about to evangelize Condit. You've been warned). Because I used Condit, I<br />
-can use the status of the computation that was returned and take a different<br />
-course of action (what to do if the object wasn't created). You could do that<br />
+<p>(I'm about to evangelize Condit. You've been warned). Because I used Condit, I
+can use the status of the computation that was returned and take a different
+course of action (what to do if the object wasn't created). You could do that
 with the first example too but code readibility plummets as a result.</p>
-<p>However, there are some design patterns that are somewhat horrible to use too.<br />
-One such example is the polymorphic cousin of the factory, the abstract factory.<br />
-I entertained the thought of using an abstract factory when I needed to create<br />
-the fake version of an API that I was writing. The reason an abstract factory<br />
-pattern applies here is because I was trying to use a single abstract<br />
-interface to try and create a family of related concrete objects (one concrete<br />
-object was the actual implementation that would be used in production and the<br />
-other being the fake that would be used for testing). From the time I first<br />
-started writing code for it to about 2 hours later, I ended up having to add<br />
+<p>However, there are some design patterns that are somewhat horrible to use too.
+One such example is the polymorphic cousin of the factory, the abstract factory.
+I entertained the thought of using an abstract factory when I needed to create
+the fake version of an API that I was writing. The reason an abstract factory
+pattern applies here is because I was trying to use a single abstract
+interface to try and create a family of related concrete objects (one concrete
+object was the actual implementation that would be used in production and the
+other being the fake that would be used for testing). From the time I first
+started writing code for it to about 2 hours later, I ended up having to add
 five classes, with minute differences between each:</p>
 <pre>class AbstractFactory {}
 class ConcreteFactoryOne {}
 class AbstractAPI {}
 class ConcreteAPI {}
 class Client {}</pre>
-<p>Notice that I haven't even gotten to the fake API yet. I was trying my best to<br />
-keep my code simple but the abstract factory wasn't helping. I ended up<br />
-scrapping this, making the one method in the concrete API that I needed to fake<br />
-virtual, and reimplementing it in a fake instead of using an abstract factory<br />
+<p>Notice that I haven't even gotten to the fake API yet. I was trying my best to
+keep my code simple but the abstract factory wasn't helping. I ended up
+scrapping this, making the one method in the concrete API that I needed to fake
+virtual, and reimplementing it in a fake instead of using an abstract factory
 pattern. The code ended up smaller, more concise and organized. A win for today.</p>
-<p>This isn't to say that the abstract factory pattern or other rather large<br />
-design patterns aren't useful. My goal for this article was to give a more<br />
-cautionary tale on why unquestioning adherence to the design pattern and<br />
-object oriented programming philosophy isn't the best course of action. In any<br />
-engineering organization, time is one of your most valuable assets. When you<br />
-don't need to do work in one area, you free up time to do work where it matters.<br />
-So don't spend time implementing a design pattern just for the sake of having<br />
-a common language with other programmers or just for the sake of having design<br />
-patterns. Many programmers don't speak with design patterns anyway (for good<br />
-reason). What matters most (or should matter most) is serving customers needs<br />
+<p>This isn't to say that the abstract factory pattern or other rather large
+design patterns aren't useful. My goal for this article was to give a more
+cautionary tale on why unquestioning adherence to the design pattern and
+object oriented programming philosophy isn't the best course of action. In any
+engineering organization, time is one of your most valuable assets. When you
+don't need to do work in one area, you free up time to do work where it matters.
+So don't spend time implementing a design pattern just for the sake of having
+a common language with other programmers or just for the sake of having design
+patterns. Many programmers don't speak with design patterns anyway (for good
+reason). What matters most (or should matter most) is serving customers needs
 and writing scalable, efficient, maintainable code that delivers on those needs.</p>
 <p>A note: I am, by no means, an expert in design patterns. If you have a suggestion on how I could've tackled the issue above more effectively with design patterns, I'm all ears (and I'll follow up this article with a correction).</p>
-<p>Disclosure: this article was an opinion piece. All expressed opinions are my own<br />
+<p>Disclosure: this article was an opinion piece. All expressed opinions are my own
 opinion.</p>
