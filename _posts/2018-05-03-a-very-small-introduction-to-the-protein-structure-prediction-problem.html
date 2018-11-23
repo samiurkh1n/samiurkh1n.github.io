@@ -1,0 +1,40 @@
+---
+layout: post
+title: A (very small) introduction to the protein structure prediction problem
+date: 2018-05-03 19:16:13.000000000 -04:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Computational Biology
+tags: []
+meta:
+  timeline_notification: '1525392977'
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _publicize_job_id: '17462473646'
+author:
+  login: samiurkh1n
+  email: samiurkh1n@gmail.com
+  display_name: samiurkh1n
+  first_name: Samiur
+  last_name: Khan
+---
+<p>Computation has had a large influence on the way humans understand and interact with the world. One such domain that has been largely influenced is the world of biology. Many tout that biology is <a href="https://www.wired.com/story/biology-will-be-the-next-great-computing-platform/" target="_blank" rel="noopener">becoming</a> a computational discipline. I want to introduce just a small sliver of this trend: the protein structure prediction problem, the problem of trying to predict the three dimensional structure of a protein given a sequence of amino acids represented as strings.</p>
+<p>Why does this protein structure prediction matter? Most of the medicine you consume interact with some kind of protein. For instance, Schizophrenia medicine aids patients by blocking dopamine receptors. Receptors are proteins lodged onto the surface of cells. When designing new medicine, pharmaceutical firms design molecules to interact with these proteins. Scientists at these firms can use protein structure prediction techniques to determine whether the molecules they have designed can even feasibly interact with the proteins they are targeting, thus saving time and money on producing molecules they don't need to.</p>
+<div style="text-align:center">
+<p><img class=" aligncenter" src="{{ site.baseurl }}/assets/images/T0604_web.gif" alt="I-TASSER model vs crystal
+structure of T0604_1, a CASP9 FM target" width="526" height="336" /></div> <i>Figure 1. An example of a protein
+structure prediction compared to an experimentally determined protein structure. Source: Zhang Lab @ University of
+Michigan</i>
+<p>Unfortunately, trying to predict how <a href="https://www.ncbi.nlm.nih.gov/pubmed/9541869">protein folds is NP Complete</a>. This simply means we don't have an efficient procedure for determining how a protein is structured given the knowledge about what amino acids compose the protein. A large part reason why we don't have an efficient procedure is because of just how little we understand all the intricacies involved in understanding how a protein folds. There are many models but not a scientifically confirmed consensus that one model is the best contributor to why a protein folds the way it does. However, all the models all involve optimizing some quantity. For instance, one such model structures a protein so that each atom has a force on the other, called force fields. Each force field's strength is determined by the properties of the atom itself. An ideal protein structure under this model is one where all the atoms are the right distance apart such that the energy required to hold that structure is minimized.</p>
+<p>To give an intuition of what "NP Complete" means here, imagine yourself as beginning with a set of plastic balls and sticks, where each ball can be connected with the sticks. <em>Note</em>: this is similar to how programs begin with just an ordered set of amino acids, none of them being connected, yet. For this toy model, each atom is represented by an plastic ball, each force field is represented by the size of each ball and each bond between atoms is represented by a plastic stick. You know the order of the balls but you don't know how they should be connected. You begin at one end, connecting the balls in order that they should be. However, at each ball added, you have to twist <em>all</em> the other balls around their sticks just a little bit to ensure they are the farthest distance apart. Most of the time, you might find that you have to rearrange the earlier atoms to get the best arrangement overall. The real world example of this is if you suddenly have to account for a particularly electron hungry atom like Fluorine. An electronegative atom would shorten the bond length near it and change the polarity of an entire set of atoms near it, thus changing the overall structure of that region of atoms. Changing an arrangement in the middle of an incomplete structure would make the rest of your model partially incorrect so you'd need to rebuild the remainder of the model. This process of adding and fixing causing removal and additions and more fixing would repeat for a very long time. Each time you add a ball to the model, the number of things you need to check to make sure the model is the best it can be only increases. This is (kind of) what a NP Complete problem feels like. Now that example may or may not have worked so <a href="https://www.youtube.com/watch?v=u2DLlNQiPB4">here</a> is a pretty neat video in the (likely) case you want a better explanation.</p>
+<p>However, even though NP Complete problems like protein structure prediction are hard to solve, that doesn't mean we shouldn't try to solve it at all. Often times an approximate solution is just good enough that we can work with it. One of these procedures that can get a relatively good prediction of how a protein is structured is the <a href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/">I-TASSER</a> system. I-TASSER is built using a very simple yet incredibly empowering realization: that we don't need to predict a protein's structure atom by atom but rather we can use already known structures to instead predict how sub-sequences of amino acid will fold around other sub-sequences. Basically, we don't need to do the work that nature and other scientists have already done. I-TASSER begins it's prediction of how a protein will be structured by finding [smaller] protein strands that align with subsequences of the input protein. These smaller protein strands are then re-assembled together repeatedly. Any gaps where we don't have a smaller protein strand are filled using ab-initio modeling. You can learn more about how I-TASSER works <a href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/about.html">here</a>. Other prediction algorithms can be found <a href="http://www.predictioncenter.org/index.cgi?page=links">here</a>.</p>
+<p>This was a very small introduction to a very large problem. I-TASSER is very effective but there is plenty of work to be done. Some scientists are trying to derive a single function to determine how proteins fold from their structure. Others are trying to improve approximation algorithms like I-TASSER and more.</p>
+<p>The dream, however, remains the same for the many brilliant scientists working to attack this problem: to make protein interactions more predictable and, in effect, bring down the cost of medicine R &amp; D. This is one of those rare clear interdisciplinary opportunities where computer scientists can contribute directly to creating medicine and improving health. (For me at least) I know I'll have lived a good life when I can use this discipline I call home to make sure ill health doesn't steal a child's future. I hope I have sparked your interest in this problem :)</p>
+<p>&nbsp;</p>
+<hr />
+<p>As always, if you see anything wrong with the post or want me to expand on some point, please do comment or let me know and I'll make sure to fill in any gaps or fix any errors.</p>
+<p>Disclosure: I work on a part of I-TASSER called <a href="https://github.com/samiurkh1n/TMAlign">TM-align</a>.</p>

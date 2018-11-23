@@ -1,0 +1,83 @@
+---
+layout: post
+title: 'TIDK#1: Regular expressions and grep'
+date: 2017-11-12 16:31:50.000000000 -05:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- TIDK
+tags: []
+meta:
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _publicize_job_id: '11370434323'
+author:
+  login: samiurkh1n
+  email: samiurkh1n@gmail.com
+  display_name: samiurkh1n
+  first_name: Samiur
+  last_name: Khan
+---
+<p><em>TIDK (short for "Things I Didn't Know") is a series of blog posts about concepts I found difficult to understand. In each article, I take a concept and explain it in a way that allows you to reason about it intuitively. If you find it too complicated, shoot me an email specifying what part is complicated and I'll make edits. </em></p>
+<hr />
+<p>The regular expression is one of the most powerful tools that a computer scientist can use to manipulate or query for information. However, there is an unfortunately large learning curve to using regular expressions. To someone relatively new to computing, a regular expression just looks like a jumbled mess of characters mashed together to do... something. My hope is with this article, I can demystify just enough so that you can reason through regex problems you face.</p>
+<h2>What is a regular expression?</h2>
+<p>To understand regular expressions, we need to first understand theoretical machines called finite automatons.</p>
+<p>Before I even delve into that beast, let's take a second to understand what an abstract machine even is. For the purpose of the article, you can imagine an abstract machine as a machine that switches between states depending on some input it reads. Imagine a box with a scanner on top and a small screen on the side that informs you, the user, of the box's state. If you place certain symbols on the scanner, the box will become some state like sad or confused and if you place other symbols on the scanner, the box will switch to other states like happy or joyful. Now if you generalize this, you can imagine an abstract machine is just a set of those states.</p>
+<p>A finite automaton is an abstract machine that has two special states in addition to the normal set of states: (i) a start state that the machine begins with and (ii) an accept state that, if the machine ends on that state, the output of the machine is true. The machine will switch states depending on the next character it reads from some input string. Otherwise, the machine will return false. Because we know certain automatons will return true and false, we can define these machines in terms of what it will return true.</p>
+<p>For example, say we want a finite automaton that will return true if the last two characters of the string are 01. Let's simplify the alphabet to just 0 and 1 (by this, I mean in the world of the machine there are only two characters, 0 and 1). Our finite automaton has the following states: S, 0, 01 (S denotes the start state and 01 denotes the accept state). We switch from state S to 0 if we read a 0. We switch from 0 to 01 if we read in a 0. We revert back from 01 to 0 if the next character is a 0. The arrows below indicate all the possible ways you can change states.</p>
+<div style="text-align:center">
+<p><img class="wp-image-87 size-full aligncenter" src="{{ site.baseurl }}/assets/images/finite-automaton-that-returns-a-01.png" alt="Finite Automaton That Returns a 01" width="452" height="202" /></p>
+</div>
+<p>Say we are reading the string 101101. We begin at state S. We read the first character 1. Because S has no state change rule with the character 1, the machine does not change states. We then read the character 0 so we switch to state 0. Now we read in the next character 1 so we then switch to the state 01. However, because the character we read after that is also a 1, we switch back to the start state S. We read in the next character 0 and then a 1 so we end at the state 01. Because that is our defined accept state, the machine will return true.</p>
+<h2>Okay enough theory. How do I use it?</h2>
+<p>In practice, one of the most common places to use regular expressions is in shortening the software you write or in shortening command line program calls to a few characters. For example, instead of manually removing all the files like this (where you list all the files to remove)...</p>
+<div style="text-align:center">
+<p><img class="alignnone size-full wp-image-104" src="{{ site.baseurl }}/assets/images/manual-removal-of-test.png"
+alt="manual removal of test" width="700" /></p>
+</div>
+<p>...you use regular expressions to save time and key presses...</p>
+<div style="text-align:center">
+<p><img class="alignnone size-full wp-image-105" src="{{ site.baseurl }}/assets/images/regex-removal-of-test.png"
+                                                 alt="regex removal of test" width="700" /></p>
+</div>
+<p>Regular expressions depend a little on the engine you are using to parse them. You can think of the engine as the scanner in the metaphor above that interprets the symbol being read. For the sake of simplicity, the rest of the article will use the <span style="text-decoration:underline;">grep</span> command line program found on most Unix/Macintosh and Linux machines and uses a POSIX engine standard (you don't need to know what that means for now).</p>
+<p>Grep is short for "<span style="text-decoration:underline;">g</span>lobally search a <span style="text-decoration:underline;">r</span>egular <span style="text-decoration:underline;">e</span>xpression and <span style="text-decoration:underline;">p</span>rint". It is commonly used to look for and print some substring of characters from a file that match a regular expression. Calls to grep come in a format that looks like this:</p>
+<pre>grep &lt;command line flags&gt; &lt;regular expression&gt; &lt;file&gt;</pre>
+<p>Here is the way you can think about grep:</p>
+<p>(1) grep looks at the command line flag to determine how it will read file. For example, if you pass in <code>grep -c</code>, grep will know to only print a count of the times it found the regular expression you specified.</p>
+<p>(2) Behind the scenes, you can imagine grep constructed a small finite automaton from the flags and the regular expression you provided.</p>
+<p>(3) grep then reads your file one substring or line at a time and passes it to the finite automaton it created to tell it if that substring matches the description you gave. Grep may read word for word or line to line depending on the formatting of the file. For example, if you pass it <code>hello test hello again</code>, grep will pass <code>hello</code>, <code>test</code>, <code>hello</code>, <code>again</code> to the finite automaton. Or if you pass it <code>hello \n test</code>, it will read <code>hello</code> up to the newline character and then read <code>test</code>. The finite automaton then determines if the string it just received from grep reaches that lovely accept state (or the lovely non-accept states, they are all welcoming don't worry). If it does reach that accept state, it will notify grep to print it or increase some count if you passed the <code>-c</code> flag or something. If it doesn't reach that accept state, the finite automaton will tell grep for the next line. This loop continues until there are no more strings to read.</p>
+<p>Regular expressions have expanded over the years to make users even more powerful and save programmers more time. The syntax the engines accept include a whole litany of characters that I don't know the most of anyway. However, I'll go through a few common ones you might find handy:</p>
+<p>For the purpose of the examples, say we have a file <code>test-file.txt</code> that has the following data in it:</p>
+<blockquote><p>hello<br />
+this<br />
+is<br />
+is<br />
+a<br />
+file<br />
+with<br />
+data</p></blockquote>
+<p>A common character you might find handy is the <code>^</code> character. The caret represents an anchor to the the beginning of the string. It basically tells the finite automaton to only look from the beginning of the substring. Any character that follows that caret must be found at the beginning of the substring it is reading. For example, running</p>
+<p><code>grep -c is test.txt</code></p>
+<p>will output 3. Take a send to reason through why that is the case...</p>
+<p>Here is why it output 3: grep read the <code>-c</code> flag and it knows that it should print a count, not the actual text. It then reads the regular expression <code>is</code>. If a substring has the characters <code>i</code> and <code>s</code> together in that order, it will increase the count. The finite automaton underneath reads <code>hello</code> and it finds no <code>is</code> in that string. It then reads <code>this</code> and finds <code>is</code> within it so it increases the count. The count also increases for the next two lines of <code>is</code>. It then reaches the end and has the count of 1 + 1 + 1 = 3.</p>
+<p>But what if you only wanted lines with is and just is? That is where the caret comes in. If you run</p>
+<p><code>grep -c ^is test.txt</code></p>
+<p>the finite automaton did not count this because it only increases the count if the <code>is</code> appears at the beginning of the substring.</p>
+<p>Similar to <code>^</code> is the <code>$</code> which is a symbol for one past the end of the substring. So running</p>
+<p><code>grep -c is$ test.txt</code></p>
+<p>prints the number of times a substring ends with the string <code>is</code>.</p>
+<p>If you only wanted to print the substring <code>is</code> (and not the substring <code>isblahis</code>), you would need to use a combination of the two symbols above and run</p>
+<p><code>grep -c ^is$ test.txt</code></p>
+<p>would output 2.</p>
+<p>Another common symbol you might use is <code>.</code> which is a placeholder for any alpha-numerical character. For example, if you wanted to print out all three character substrings, you would run</p>
+<p><code>grep -c ^...$ test.txt</code></p>
+<p>and because there are no three character substrings in our file, grep will output 0.</p>
+<p>The syntax for regular expressions can vary from platform to platform so I won't delve too deep into the syntax. You can find more info on the syntax <a href="https://www.regular-expressions.info/" target="_blank" rel="noopener">here</a>, a site that really helped me when I was first learning regular expressions.</p>
+<p>This piece may have been a lot to take in. If it wasn't, good for you. If it was, don't panic. Very few people are experts at this. We are all collectively as confused as you are but just in different areas. As with any new discipline, the only thing you can do is <strong>practice</strong>. Use regular expressions, make mistakes, understand why you made those mistakes, and repeat. When you are too confused, ask for help.</p>
+<p>I promise to you that once you start using regular expressions more, you will realize the power it has to simplify the software you write and to save your time, that lucrative thing we all want more of but sometimes lose.</p>
+<p>Write like you are running out of time (Lin Manuel Miranda's Hamilton reference).</p>
