@@ -10,7 +10,7 @@ github_username:  samiurkh1n
 
 # Build settings
 markdown: kramdown
-theme: clean-jekyll-theme
+remote_theme: siddhantgoel/clean-jekyll-theme
 plugins:
   - jekyll-feed
 
