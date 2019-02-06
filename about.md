@@ -9,4 +9,14 @@ Hi, my name is Samiur.
 <img id="portrait" src="{{site.url}}/assets/images/portrait.jpg" width="300" align="middle" alt="portrait of Samiur">
 </div>
 
-I am currently a computer science and biochemistry (minor) student at the University of Michigan, Ann Arbor. I am interested in building biologically inspired machines that can empower humanity to solve it biggest challenges. I also enjoy reading history and non-fiction books, collecting textbooks, cycling, sprinting, bouldering.
+I am currently a computer science student at the University of Michigan, Ann
+Arbor. I am interested in systems programming (kernel, drivers, networking
+level). I am also interested in exploring the area between computing and
+biochemistry.
+
+I stream my programming efforts. Follow me/subscribe! 
+[Stream](https://www.twitch.tv/samiurkhan) and the
+[archive](https://www.youtube.com/channel/UCIp_mwikFpGM4LsEyKSfI1w/featured?view_as=subscriber).
+
+I also enjoy reading history and non-fiction books and thinking about
+business/startups/finance. I enjoy weightlifting and cycling.

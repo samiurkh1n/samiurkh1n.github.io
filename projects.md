@@ -5,18 +5,13 @@ permalink: /projects/
 ---
 ### Current projects
 
-**TMalign**
+**re3**
 
-Binary to align and calculate the structural similarity between two
-proteins. I contribute features like allowing the binary to align entire
-directories of proteins. Originally created by the Zhang lab where I also
-write.
+A fast, thread safe, memory efficient regular expression library and engine.
 
-[Repo](https://github.com/samiurkh1n/TMAlign)
+**utf8string**
 
-**uLog**
-
-Single header file only logging library for C++ binaries.
+A C++ string library that supports the UTF8 character set.
 
 ### Previous projects
 
@@ -33,3 +28,11 @@ provides more useful infromation when programs fail. You can think
 of this as an alternative to returning a bool or a void.
 
 [Repo](https://github.com/samiurkh1n/Condit)
+
+**TMalign**
+
+Binary to align and calculate the structural similarity between two
+proteins. I contribute features like allowing the binary to align entire
+directories of proteins. Originally created by the Zhang lab where I also
+write.
+

@@ -8,12 +8,13 @@ permalink: /resume/
 
 ### Current position
 
-**Research intern at the University of Michigan Department of Computational
-Medicine and Bioinformatics**
+**TA for EECS 398 (aka EECS 201) at University of Michigan EECS Dept.**
 
-*January 2018 to present*
+*January 2018 to September 2018, January 2019 to Now*
 
-Working on software to make protein database search and alignment faster.
+Class teaches students how to learn about tools commonly used by computer
+scientists like shell scripting, git, linux, IDEs/editors, build
+systems, package managers, debuggers, VFS, etc..
 
 ### Previous experience
 
@@ -26,13 +27,12 @@ Worked on an internal logging service for a distributed fault-tolerant
 stream processing framework provided as a service. Reduced query times from
 30 minutes to 1.5 minutes (at most).
 
-**TA for EECS 398 (aka EECS 201) at University of Michigan EECS Dept.**
+**Research intern at the University of Michigan Department of Computational
+Medicine and Bioinformatics**
 
-*January 2018 to September 2018*
+*January 2018 to December 2018*
 
-Class teaches students how to learn about tools commonly used by computer
-scientists like shell scripting, git, linux, IDEs/editors, build
-systems, package managers, debuggers, VFS, etc..
+Working on software to make protein database search and alignment faster.
 
 **Engineering Practicum Intern at Google**
 
