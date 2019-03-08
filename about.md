@@ -14,9 +14,7 @@ Arbor. I am interested in systems programming (kernel, drivers, networking
 level). I am also interested in exploring the area between computing and
 biochemistry.
 
-I stream my programming efforts. Follow me/subscribe! 
-[Stream](https://www.twitch.tv/samiurkhan) and the
-[archive](https://www.youtube.com/channel/UCIp_mwikFpGM4LsEyKSfI1w/featured?view_as=subscriber).
-
 I also enjoy reading history and non-fiction books and thinking about
 business/startups/finance. I enjoy weightlifting and cycling.
+
+I work on [Prana](https://getprana.io) too.

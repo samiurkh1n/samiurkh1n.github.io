@@ -5,6 +5,11 @@ permalink: /projects/
 ---
 ### Current projects
 
+**Prana**
+
+Prana is a bioinformatics API aimed at simplifying bioinformatics software
+development. Check it out [here](https://getprana.io).
+
 **re3**
 
 A fast, thread safe, memory efficient regular expression library and engine.
