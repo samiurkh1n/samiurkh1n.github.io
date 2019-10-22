@@ -5,10 +5,9 @@ permalink: /projects/
 ---
 ### Current projects
 
-**Prana**
+**Kernel Memory Management**
 
-Prana is a bioinformatics API aimed at simplifying bioinformatics software
-development. Check it out [here](https://getprana.io).
+Contributing to the linux kernel memory management subsystem.
 
 **re3**
 

@@ -11,10 +11,8 @@ Hi, my name is Samiur.
 
 I am currently a computer science student at the University of Michigan, Ann
 Arbor. I am interested in systems programming (kernel, drivers, networking
-level). I am also interested in exploring the area between computing and
-biochemistry.
+level).
 
-I also enjoy reading history and non-fiction books and thinking about
-business/startups/finance. I enjoy weightlifting and cycling.
-
-I work on [Prana](https://getprana.io) too.
+Hobbies:
+- Muay Thai
+- Reading business and history books

@@ -8,15 +8,30 @@ permalink: /resume/
 
 ### Current position
 
-**TA for EECS 398 (aka EECS 201) at University of Michigan EECS Dept.**
+**SRE for EECS 201 (CSPragmatics) at University of Michigan EECS Department**
 
-*January 2018 to September 2018, January 2019 to Now*
+*September 2019 to now*
+
+Working on introducing site reliability engineering concepts to the class
+software (autograders, websites, etc...).
+
+### Previous experience
+
+**TA for EECS 201 (CSPragmatics) at University of Michigan EECS Department**
+
+*January 2018 to September 2018, January 2019 to September 2019*
 
 Class teaches students how to learn about tools commonly used by computer
 scientists like shell scripting, git, linux, IDEs/editors, build
 systems, package managers, debuggers, VFS, etc..
+Worked on the new class website: [cspragmatics.com](http://cspragmatics.com).
 
-### Previous experience
+**Software Engineering Intern at Google**
+
+*May 2019 to August 2019*
+
+Interned on the Google Cloud Site Reliability Engineering team.
+Worked on a job scheduler for a virtual data center cluster turnup service.
 
 **Engineering Practicum Intern at Google**
 
