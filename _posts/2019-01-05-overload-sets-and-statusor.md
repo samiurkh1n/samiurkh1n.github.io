@@ -33,10 +33,12 @@ that a machine should execute.
 
 However, can we say that functions are the fundamental unit of API design? For instance, let's take a look
 at vector push back, a method to push an element into a vector:
-```cpp
+
+{% highlight cpp %}
 void vector<T>::push_back(const T&);
 void vector<T>::push_back(T&&);  // rvalue argument
-``` 
+{% endhighlight %}
+
 Above, these are both valid functions to push an element into a vector. Is it right to say that they are
 distinct elements of an API? Not really! An API is composed of a set of methods to do computations. A method,
 however, shouldn't really be reasoned about as a single function. After all, push back should do the same
@@ -67,7 +69,8 @@ I also had to decide whether I wanted to allow implicit conversions from one typ
 Some context on that last problem:
 A constructor is allowed to make one implicit conversion of an argument to resolve types. When you mark a constructor
 as explicit, you are disallowing the implicit conversion. An example
-```cpp
+
+{% highlight cpp %}
 class Test {
 public:
 	Test(bool s): s_(s) {}
@@ -77,7 +80,8 @@ private:
 
 // main function
 Test t(0);  // implicit conversion fails if constructor above is marked explicit
-```
+{% endhighlight %}
+
 _Should I have marked the constructor explicit?_
 
 With overload sets, you can better reason about whether you should use the explicit keyword (especially for constructors).
