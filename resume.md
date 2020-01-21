@@ -6,20 +6,13 @@ permalink: /resume/
 
 [Resume as pdf]({{site.url}}/assets/resume.pdf)
 
-### Current position
-
-**SRE for EECS 201 (CSPragmatics) at University of Michigan EECS Department**
-
-*September 2019 to now*
-
-Working on introducing site reliability engineering concepts to the class
-software (autograders, websites, etc...).
+I will be joining Google Cloud as a Software Engineer August 2020.
 
 ### Previous experience
 
 **TA for EECS 201 (CSPragmatics) at University of Michigan EECS Department**
 
-*January 2018 to September 2018, January 2019 to September 2019*
+*January 2018 to September 2018, January 2019 to December 2019*
 
 Class teaches students how to learn about tools commonly used by computer
 scientists like shell scripting, git, linux, IDEs/editors, build

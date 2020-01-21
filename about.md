@@ -11,12 +11,17 @@ align="middle" alt="portrait of Samiur">
 
 I am currently a computer science student at the University of Michigan, Ann
 Arbor. I am interested in systems programming (kernel, drivers, networking
-level).
-
-Update: I will be joining Google Cloud as a Software Engineer after graduation.
+level) and the different ways we can bridge computing and the natural sciences
+(particularly biochemistry).
 
 Email:
 - samiurkh1n@gmail.com
 - samiurk@protonmail.com
 
-Hobbies: Muay Thai and reading business and history books
+Hobbies:
+
+- reading (new weird, Lovecraftian fiction, history, business non-fiction)
+- writing (programming) and streaming
+- Muay Thai
+
+Links: [LinkedIn](https://www.linkedin.com/in/samiurkhan/), [Twitter](https://twitter.com/samiurkh1n)

@@ -5,11 +5,11 @@ permalink: /projects/
 ---
 ### Current projects
 
-**Kernel MM** - Contributing to the linux kernel memory management subsystem.
+**cadd-go** - computer aided drug design software written in golang
 
-**re3** - A fast, thread safe, memory efficient regular expression library and engine.
+**ymir** - a game engine, written purely in C.
 
-* **utf8string** - A C++ string library that supports the UTF8 character set.
+**[ps](/stream)** - the programming stream
 
 ### Previous projects
 
@@ -23,6 +23,5 @@ of this as an alternative to returning a bool or a void.
 
 **TMalign** - Binary to align and calculate the structural similarity between two
 proteins. I contribute features like allowing the binary to align entire
-directories of proteins. Originally created by the Zhang lab where I also
-write.
+directories of proteins.
 
