@@ -9,8 +9,6 @@ permalink: /projects/
 
 **ymir** - a game engine, written purely in C.
 
-**[ps](/stream)** - the programming stream
-
 ### Previous projects
 
 **pdb2fasta** - Binary to convert PDB formatted files to FASTA formatted files. 
