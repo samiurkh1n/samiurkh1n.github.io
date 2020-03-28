@@ -5,7 +5,7 @@ permalink: /projects/
 ---
 ### Current projects
 
-**cadd-go** - computer aided drug design software written in golang
+**pharmago** - computer aided drug design software written in golang
 
 **ymir** - a game engine, written purely in C.
 
