@@ -32,4 +32,4 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 # For blog importing
 gem "hpricot"
 gem "open_uri_redirections"
-gem "redcarpet"
+gem "redcarpet", ">= 3.5.1"

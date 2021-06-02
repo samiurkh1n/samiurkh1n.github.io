@@ -6,7 +6,8 @@ permalink: /resume/
 
 [Resume as pdf]({{site.url}}/assets/resume.pdf)
 
-I will be joining Google Cloud as a Software Engineer August 2020.
+Currently a software engineer at Google Cloud. I work on turning up new data
+centers and, on the side, linux kernel memory management.
 
 ### Previous experience
 

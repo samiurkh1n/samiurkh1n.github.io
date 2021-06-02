@@ -3,11 +3,6 @@ layout: page
 title: Projects
 permalink: /projects/
 ---
-### Current projects
-
-**pharmago** - computer aided drug design software written in golang
-
-**ymir** - a game engine, written purely in C.
 
 ### Previous projects
 
